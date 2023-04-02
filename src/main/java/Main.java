@@ -2,17 +2,35 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList <String> testAnimals = new ArrayList<>();
-        String animalDog = Animal.DOG.name();
-        String animalCat = Animal.CAT.name();
-        String animalCow = Animal.COW.name();
-        String animalHorse = Animal.HORSE.name();
-        testAnimals.add(animalDog + " Zh");
-        testAnimals.add(animalCat + " May");
-        testAnimals.add(animalCow + " Myyy");
-        testAnimals.add(animalHorse + " Brrr");
-        testAnimals.add(animalDog + " Жулик");
-        AnimalFarm animalFarm = new AnimalFarm(testAnimals);
-        animalFarm.countedAnimals(testAnimals);
+        ArrayList <String> toTestAnimals = new ArrayList<>();
+
+        toTestAnimals.add("DOG Zh");
+        toTestAnimals.add("CAT May");
+        toTestAnimals.add("COW Myyy");
+        toTestAnimals.add("HORSE Brrr");
+        toTestAnimals.add("dOG Жулик");
+        toTestAnimals.add("CAT Mur");
+        toTestAnimals.add("OOO NOT_CORRECT_NAME");
+        toTestAnimals.add("CAT");
+
+        AnimalFarm animalFarm = new AnimalFarm(toTestAnimals);
+
+        animalFarm.printFarmAnimals();
+        System.out.println("_________");
+
+        System.out.println(animalFarm.countedAnimals(toTestAnimals));
+        System.out.println("_________");
+
+        System.out.println(animalFarm.uniqueNames());
+        System.out.println("_________");
+
+        animalFarm.addNewAnimal(Animal.DOG, "Poll");
+        animalFarm.addNewAnimal(Animal.CAT);
+        animalFarm.addNewAnimal("NoName");
+
+        animalFarm.printFarmAnimals();
+        System.out.println("+++++++++++++++++++");
+
+        System.out.println(animalFarm.toString());
     }
 }
